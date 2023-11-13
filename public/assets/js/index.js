@@ -1,6 +1,3 @@
-const fs = require('fs');
- 
-
 let noteForm;
 let noteTitle;
 let noteText;
