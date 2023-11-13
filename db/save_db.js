@@ -1,6 +1,5 @@
 const fs = require("fs");
 const util = require("util");
-// const { v4: uuid } = require("uuid");
 
 const readFileSync = util.promisify(fs.readFile);
 
@@ -13,7 +12,7 @@ class Store {
   write(note) {
     return writeFileAsync("db/db.json", JSON.stringify(note));
   }
-  getnotes() {
+  getNotes() {
     return this.read().then((notes) => {
       let displayNotes;
       try {
@@ -24,7 +23,13 @@ class Store {
       return displayNotes;
     });
   }
-//   addnote(note) {}
-//   removenote(id) {}
+  addNote(note) {
+    return this.getNotes().then((notes) => {
+      notes.push(note);
+      return this.write(notes);
+    })
+    
+  };
+//   removeNote(id) {}
 }
 module.exports = new Store();
