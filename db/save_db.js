@@ -31,6 +31,12 @@ class Store {
     })
     
   };
-//   removeNote(id) {}
+  // removeNote(id) {
+  //   return this.removeNote().then((notes)=>{
+  //     notes.removeNote(notes);
+  //     return this.write(notes);      
+  //   })
+  // }
 }
 module.exports = new Store();
+
